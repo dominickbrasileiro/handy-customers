@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   def index
-    @orders = Order.all
-    render json: @orders
+    @orders = Order.includes(:customer)
+    render json: @orders.to_json(:include => :customer)
   end
 
   def create
