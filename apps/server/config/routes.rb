@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   post "/products", to: "products#create"
 
   get "/orders", to: "orders#index"
+  post "/customers/:customer_id/orders", to: "orders#create"
 end
