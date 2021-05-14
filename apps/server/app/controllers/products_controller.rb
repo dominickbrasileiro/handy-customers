@@ -1,4 +1,9 @@
 class ProductsController < ApplicationController
+  def index
+    @products = Product.all
+    render json: @products
+  end
+
   def create
     @product = Product.new(create_product_params)
 
