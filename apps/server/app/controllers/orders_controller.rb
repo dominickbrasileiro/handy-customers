@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   def index
-    @orders = Order.includes(:customer)
+    @orders = Order.all
     render json: @orders.to_json(:include => :customer)
   end
 
