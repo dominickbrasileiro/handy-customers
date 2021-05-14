@@ -1,4 +1,4 @@
-# Add Customer
+# Create Customer
 
 > ## Success cases
 
