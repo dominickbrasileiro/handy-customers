@@ -4,6 +4,11 @@ class OrdersController < ApplicationController
     render json: @orders.to_json(:include => :customer)
   end
 
+  def show
+    @orders = Order.find(params[:order_id])
+    render json: @orders.to_json(:include => [:customer, :order_items])
+  end
+
   def create
     @customer = Customer.find(params[:customer_id])
     
