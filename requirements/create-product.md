@@ -5,7 +5,7 @@
 1. ✅ User sends a **POST** request to route **/products**
 2. ✅ User sends in the **Body**: { name, price }
 3. ✅ Server creates an active product in the database
-4. ✅ Returns **200** with the product info
+4. ✅ Returns **201** with the product info
 
 > ## Exceptions
 

@@ -5,7 +5,7 @@
 1. ✅ User sends a **POST** request to route **/customers**
 2. ✅ User sends in the **Body**: { name, phone_number, birth_date }
 3. ✅ Server creates an active customer in the database
-4. ✅ Returns **200** with the customer info
+4. ✅ Returns **201** with the customer info
 
 > ## Exceptions
 

@@ -5,7 +5,7 @@
 1. ✅ User sends a **POST** request to route **/orders**
 2. ✅ User sends in the **Body**: { customer_id, product_ids }
 3. ✅ Server creates an order with datetime in the database
-4. ✅ Returns **200** with the order info
+4. ✅ Returns **201** with the order info
 
 > ## Exceptions
 
