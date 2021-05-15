@@ -1,0 +1,26 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  border-radius: 4px;
+  border: 0;
+  
+  background-color: #F8B703;
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+  color: #0F2F4A;
+
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 14px;
+
+  transition: background-color 0.2s;
+}
+
+.button:hover {
+  background-color: #FCC632;
+}
+
+.button > span {
+  margin-right: 6px;
+}
