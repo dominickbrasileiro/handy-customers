@@ -1,0 +1,34 @@
+.table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 14px;
+}
+
+.table /deep/ thead {
+  border-bottom: 1px solid #ddd;
+}
+
+.table /deep/ th {
+  text-align: left;
+  font-weight: 500;
+  padding: 8px 16px 8px 24px;
+}
+
+.table /deep/ tr {
+  border-bottom: 1px solid #ddd;
+}
+
+.table /deep/ td {
+  padding: 16px 16px 16px 24px;
+  vertical-align: middle;
+  line-height: 14px;
+}
+
+.table /deep/ td a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.table /deep/ td a:hover {
+  text-decoration: underline;
+}
