@@ -30,6 +30,11 @@ class OrdersController < ApplicationController
 
     @order.amount = @total
 
+    if not @order.valid?
+      render json: { error: true, message: 'Bad Request' }, status: 400
+      return
+    end
+
     if @order.save
       render json: @order, status: 201
     else
