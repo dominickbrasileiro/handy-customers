@@ -7,6 +7,11 @@ class CustomersController < ApplicationController
   def create
     @customer = Customer.new(create_customer_params)
 
+    if not @customer.valid?
+      render json: { error: true, message: 'Bad Request' }, status: 400
+      return
+    end
+
     if @customer.save
       render json: @customer, status: 201
     else
