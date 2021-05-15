@@ -29,6 +29,15 @@ services:
       - database
     depends_on:
       - database
+  frontend:
+    container_name: handy_frontend
+    image: node:14
+    working_dir: /app
+    command: bash -c "npm install && npm start"
+    volumes:
+      - ./apps/frontend:/app
+    ports:
+      - 4200:4200
 
 volumes:
   pgdata:
