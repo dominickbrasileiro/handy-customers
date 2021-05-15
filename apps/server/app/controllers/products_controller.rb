@@ -15,7 +15,7 @@ class ProductsController < ApplicationController
     if @product.save
       render json: @product, status: 201
     else
-      render error: 'Internal Server Error', status: 500
+      render json: { error: true, message:'Internal Server Error' }, status: 500
     end
   end
 
