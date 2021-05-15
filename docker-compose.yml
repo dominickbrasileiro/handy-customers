@@ -1,0 +1,35 @@
+version: "3.9"
+
+services:
+  database:
+    container_name: handy_database
+    image: postgres
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=handy_pg
+      - POSTGRES_PASSWORD=1234
+      - POSTGRES_DB=handy_customers
+    volumes:
+      - pgdata:/data/postgres
+  server:
+    container_name: handy_server
+    build: ./apps/server/.
+    command: bash -c "rails db:migrate && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    environment:
+      - PG_DATABASE=handy_customers
+      - PG_USERNAME=handy_pg
+      - PG_PASSWORD=1234
+      - PG_HOST=database
+      - PG_PORT=5432
+    ports:
+      - 3000:3000
+    links:
+      - database
+    depends_on:
+      - database
+
+volumes:
+  pgdata:
+    driver: local
+      
