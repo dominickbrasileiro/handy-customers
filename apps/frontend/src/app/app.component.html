@@ -1,0 +1,30 @@
+<div class="container">
+  <header class="header">
+    <img src="/assets/brand-logo.png">
+    <h1>HandyCustomers</h1>
+  </header>
+
+  <aside class="menu">
+    <div class="menu-item" icon="MdLayers" routerLink="/orders">
+      <span class="material-icons">layers</span>
+      Orders
+    </div>
+
+    <div class="menu-item" icon="MdLayers" routerLink="/products">
+      <span class="material-icons">category</span>
+      Products
+    </div>
+
+    <div class="menu-item" icon="MdLayers" routerLink="/customers">
+      <span class="material-icons">person</span>
+      Customers
+    </div>
+  </aside>
+
+  <main class="content">
+    <router-outlet></router-outlet>
+    <footer class="footer">
+      <p>Copyright &copy; Dominick Brasileiro 2021</p>
+    </footer>
+  </main>
+</div>
