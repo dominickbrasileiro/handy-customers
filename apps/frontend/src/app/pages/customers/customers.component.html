@@ -19,9 +19,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let customer of customers">
+        <tr *ngFor="let customer of customers | async">
           <td>{{ customer.name }}</td>
-          <td>{{ customer.birth_date | date : 'mediumDate' }}</td>
+          <td>{{ parseBirthDate(customer.birth_date) | date : 'mediumDate' }}</td>
           <td>{{ customer.phone_number }}</td>
           <td>{{ customer.created_at | date : 'medium' }}</td>
         </tr>

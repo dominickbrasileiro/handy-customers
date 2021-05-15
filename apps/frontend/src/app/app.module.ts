@@ -7,6 +7,7 @@ import { CardComponent } from './components/card/card.component';
 import { CustomersComponent } from './pages/customers/customers.component';
 import { TableComponent } from './components/table/table.component';
 import { ButtonComponent } from './components/button/button.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ButtonComponent } from './components/button/button.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

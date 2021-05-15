@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CustomersService } from 'src/app/services/customers.service';
 
 @Component({
   selector: 'app-customers',
@@ -6,30 +7,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./customers.component.css'],
 })
 export class CustomersComponent {
-  customers = [
-    {
-      name: 'Dominick Brasileiro',
-      birth_date: new Date(2003, 7, 26),
-      phone_number: '+5547997573495',
-      created_at: new Date()
-    },
-    {
-      name: 'Dominick Brasileiro',
-      birth_date: new Date(2003, 7, 26),
-      phone_number: '+5547997573495',
-      created_at: new Date()
-    },
-    {
-      name: 'Dominick Brasileiro',
-      birth_date: new Date(2003, 7, 26),
-      phone_number: '+5547997573495',
-      created_at: new Date()
-    },
-    {
-      name: 'Dominick Brasileiro',
-      birth_date: new Date(2003, 7, 26),
-      phone_number: '+5547997573495',
-      created_at: new Date()
-    }
-  ];
+  constructor(
+    private customersService: CustomersService,
+  ) {}
+
+  customers = this.customersService.getCustomers();
+
+  parseBirthDate(birthDate: string) {
+    let date: string | string[] = birthDate;
+    date = date.substring(0,10).split('-');
+    date = date[1] + '-' + date[2] + '-' + date[0];
+
+    return new Date(date);
+  }
 }
