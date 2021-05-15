@@ -7,6 +7,11 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(create_product_params)
 
+    if not @product.valid?
+      render json: { error: true, message: 'Bad Request' }, status: 400
+      return
+    end
+
     if @product.save
       render json: @product, status: 201
     else
