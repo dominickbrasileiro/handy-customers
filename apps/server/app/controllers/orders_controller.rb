@@ -18,7 +18,7 @@ class OrdersController < ApplicationController
 
     create_order_items.each do |item|
       @product = Product.find(item['product_id'])
-      @total = @total + @product.price
+      @total = @total + (@product.price * item['quantity'])
       
       @order.order_items.new(
         product_id: @product.id,
