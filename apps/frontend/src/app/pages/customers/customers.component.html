@@ -21,9 +21,9 @@
       <tbody>
         <tr *ngFor="let customer of customers">
           <td>{{ customer.name }}</td>
-          <td>{{ customer.birth_date }}</td>
+          <td>{{ customer.birth_date | date : 'mediumDate' }}</td>
           <td>{{ customer.phone_number }}</td>
-          <td>{{ customer.created_at }}</td>
+          <td>{{ customer.created_at | date : 'medium' }}</td>
         </tr>
       </tbody>
     </app-table>
