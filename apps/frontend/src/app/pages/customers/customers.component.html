@@ -1,0 +1,24 @@
+<div class="customers-page">
+  <app-card
+    cardTitle="Customers"
+  >
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Birth Date</th>
+          <th>Phone Number</th>
+          <th>Created At</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let customer of customers">
+          <td>{{ customer.name }}</td>
+          <td>{{ customer.birth_date }}</td>
+          <td>{{ customer.phone_number }}</td>
+          <td>{{ customer.created_at }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </app-card>
+</div>

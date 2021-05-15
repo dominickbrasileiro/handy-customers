@@ -1,0 +1,34 @@
+.customers-page table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 14px;
+}
+
+.customers-page table thead {
+  border-bottom: 1px solid #ddd;
+}
+
+.customers-page table th {
+  text-align: left;
+  font-weight: 500;
+  padding: 8px 16px 8px 24px;
+}
+
+.customers-page table tr {
+  border-bottom: 1px solid #ddd;
+}
+
+.customers-page table td {
+  padding: 16px 16px 16px 24px;
+  vertical-align: middle;
+  line-height: 14px;
+}
+
+.customers-page table td a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.customers-page table td a:hover {
+  text-decoration: underline;
+}
