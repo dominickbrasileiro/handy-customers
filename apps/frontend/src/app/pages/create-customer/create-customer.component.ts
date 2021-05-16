@@ -24,12 +24,13 @@ export class CreateCustomerComponent {
 
   get minBirthDate() {
     const today = new Date();
-    today.setFullYear(today.getFullYear() - 13);
+    today.setFullYear(today.getFullYear() - 100);
     return today.toISOString().split("T")[0];
   }
 
   get maxBirthDate() {
     const today = new Date();
+    today.setFullYear(today.getFullYear() - 13);
     return today.toISOString().split("T")[0];
   }
 
