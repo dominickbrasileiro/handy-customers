@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Customer, CustomersService } from 'src/app/services/customers.service';
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-customers',
