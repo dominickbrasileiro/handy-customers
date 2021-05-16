@@ -1,0 +1,42 @@
+<div class="products-page">
+  <app-card
+    cardTitle="Products"
+  >
+    <div class="create-product-button">
+      <app-button
+        icon="person_add"
+        text="Create Product"
+        routerLink="/products/new"
+      ></app-button>
+    </div>
+
+    <app-table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Active</th>
+          <th>Created At</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products | async">
+          <td>{{ product.name }}</td>
+          <td>{{ product.price | currency }}</td>
+          <td>{{ product.active ? 'Yes' : 'No' }}</td>
+          <td>{{ product.created_at | date : 'medium' }}</td>
+          <td class="table-actions">
+            <span 
+              class="material-icons"
+              title="Toggle Product Status"
+              (click)="toggleActive(product)"
+            >
+              {{ product.active ? 'do_not_disturb_on' : 'visibility'}}
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </app-table>
+  </app-card>
+</div>

@@ -10,6 +10,7 @@ import { ButtonComponent } from './components/button/button.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CreateCustomerComponent } from './pages/create-customer/create-customer.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ProductsComponent } from './pages/products/products.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     CustomersComponent,
     TableComponent,
     ButtonComponent,
-    CreateCustomerComponent
+    CreateCustomerComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule,
