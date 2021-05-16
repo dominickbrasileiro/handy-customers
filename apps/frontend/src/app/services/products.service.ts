@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 export interface Product {
   id: number;
@@ -24,21 +25,21 @@ export class ProductsService {
   ) {}
   
   getProducts() {
-    return this.http.get<Product[]>('http://localhost:3000/products');
+    return this.http.get<Product[]>(`${environment.apiBaseUrl}/products`);
   }
 
   getActiveProducts() {
-    return this.http.get<Product[]>('http://localhost:3000/products').pipe(
+    return this.http.get<Product[]>(`${environment.apiBaseUrl}/products`).pipe(
       map((products) => products.filter(product => product.active)),
     );
   }
 
   addProduct(productData: AddProductDto) {
-    return this.http.post('http://localhost:3000/products', productData);
+    return this.http.post(`${environment.apiBaseUrl}/products`, productData);
   }
 
   toggleProductStatus(product: Product) {
-    return this.http.patch(`http://localhost:3000/products/${product.id}`, {
+    return this.http.patch(`${environment.apiBaseUrl}/products/${product.id}`, {
       active: !product.active,
     });
   }

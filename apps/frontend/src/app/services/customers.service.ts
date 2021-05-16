@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 export interface Customer {
   id: number;
@@ -20,21 +21,21 @@ export class CustomersService {
   ) {}
   
   getCustomers() {
-    return this.http.get<Customer[]>('http://localhost:3000/customers');
+    return this.http.get<Customer[]>(`${environment.apiBaseUrl}/customers`);
   }
 
   getActiveCustomers() {
-    return this.http.get<Customer[]>('http://localhost:3000/customers').pipe(
+    return this.http.get<Customer[]>(`${environment.apiBaseUrl}/customers`).pipe(
       map((customers) => customers.filter(customer => customer.active)),
     );
   }
 
   addCustomer(customerData: Omit<Customer, 'created_at'>) {
-    return this.http.post('http://localhost:3000/customers', customerData);
+    return this.http.post(`${environment.apiBaseUrl}/customers`, customerData);
   }
 
   toggleCustomerStatus(customer: Customer) {
-    return this.http.patch(`http://localhost:3000/customers/${customer.id}`, {
+    return this.http.patch(`${environment.apiBaseUrl}/customers/${customer.id}`, {
       active: !customer.active,
     });
   }

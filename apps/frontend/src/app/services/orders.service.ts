@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { Customer } from './customers.service';
 
 export interface Order {
@@ -37,15 +38,15 @@ export class OrdersService {
   ) {}
   
   getOrders() {
-    return this.http.get<Order[]>('http://localhost:3000/orders');
+    return this.http.get<Order[]>(`${environment.apiBaseUrl}/orders`);
   }
 
   getOrderDetails(id: number) {
-    return this.http.get<OrderWithItems>(`http://localhost:3000/orders/${id}`);
+    return this.http.get<OrderWithItems>(`${environment.apiBaseUrl}/orders/${id}`);
   }
 
   addOrder(orderData: AddOrderDto) {
     const { customerId, items } = orderData;
-    return this.http.post(`http://localhost:3000/customers/${customerId}/orders`, { items });
+    return this.http.post(`${environment.apiBaseUrl}/customers/${customerId}/orders`, { items });
   }
 }
