@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { OrdersService, OrderWithItems } from 'src/app/services/orders.service';
@@ -9,6 +10,7 @@ import { OrdersService, OrderWithItems } from 'src/app/services/orders.service';
 export class OrderDetailsComponent {
   constructor(
     private route: ActivatedRoute,
+    private location: Location,
     private ordersService: OrdersService,
   ) {}
 
@@ -21,5 +23,9 @@ export class OrderDetailsComponent {
     this.ordersService.getOrderDetails(Number(orderId)).subscribe(result => {
       this.order = result;
     });
+  }
+
+  navigateBack() {
+    this.location.back();
   }
 }

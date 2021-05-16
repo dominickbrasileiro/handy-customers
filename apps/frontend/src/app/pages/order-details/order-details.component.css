@@ -1,12 +1,29 @@
-.order-details-page {
+.order-details-page .back-button {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.8);
+
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+}
+
+.order-details-page .back-button span {
+  margin-right: 8px;
+}
+
+.order-details-page main {
   display: flex;
 }
 
-.order-details-page section {
+.order-details-page main section {
   flex: 2;
 }
 
-.order-details-page section + section {
+.order-details-page main section + section {
   margin-left: 24px;
 }
 
