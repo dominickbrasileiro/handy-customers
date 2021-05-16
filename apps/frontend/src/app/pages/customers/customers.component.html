@@ -18,6 +18,7 @@
           <th>Phone Number</th>
           <th>Active</th>
           <th>Created At</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -27,6 +28,21 @@
           <td>{{ customer.phone_number }}</td>
           <td>{{ customer.active ? 'Yes' : 'No' }}</td>
           <td>{{ customer.created_at | date : 'medium' }}</td>
+          <td class="table-actions">
+            <span 
+              class="material-icons"
+              title="Toggle Customer Status"
+              (click)="toggleActive(customer)"
+            >
+              {{ customer.active ? 'do_not_disturb_on' : 'visibility'}}
+            </span>
+            <span 
+              class="material-icons"
+              title="Delete Customer"
+            >
+              delete
+            </span>
+          </td>
         </tr>
       </tbody>
     </app-table>

@@ -33,3 +33,17 @@
 .table /deep/ td a:hover {
   text-decoration: underline;
 }
+
+.table /deep/ .table-actions span {
+  color: #444;
+  padding: 6px;
+  font-size: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+
+  transition: background-color 0.1s;
+}
+
+.table /deep/ .table-actions span:hover {
+  background-color: #ddd;
+}

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { CustomersService } from 'src/app/services/customers.service';
+import { Customer, CustomersService } from 'src/app/services/customers.service';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-customers',
@@ -19,5 +20,11 @@ export class CustomersComponent {
     date = date[1] + '-' + date[2] + '-' + date[0];
 
     return new Date(date);
+  }
+
+  toggleActive(customer: Customer) {
+    this.customersService.toggleCustomerStatus(customer).subscribe(() => {
+      this.customers = this.customersService.getCustomers();
+    });
   }
 }

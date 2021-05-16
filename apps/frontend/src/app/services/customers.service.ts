@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 export interface Customer {
+  id: number;
   name: string;
   birth_date: string;
   phone_number: string;
@@ -23,5 +24,11 @@ export class CustomersService {
 
   addCustomer(customerData: Omit<Customer, 'created_at'>) {
     return this.http.post('http://localhost:3000/customers', customerData);
+  }
+
+  toggleCustomerStatus(customer: Customer) {
+    return this.http.patch(`http://localhost:3000/customers/${customer.id}`, {
+      active: !customer.active,
+    });
   }
 }
