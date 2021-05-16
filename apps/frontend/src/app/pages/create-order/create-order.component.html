@@ -7,7 +7,7 @@
         Customer
         <select name="customer" id="customer" formControlName="customerId">
           <option value="" disabled>Select a customer</option>
-          <option *ngFor="let customer of customers | async" [value]="customer.id">
+          <option *ngFor="let customer of customers" [value]="customer.id">
             {{ customer.name }}
           </option>
         </select>
@@ -24,7 +24,7 @@
             Product {{ i + 1}}
             <select [id]="i + '_id'" formControlName="product_id">
               <option value="" disabled>Select a product</option>
-              <option *ngFor="let product of products | async" [value]="product.id">
+              <option *ngFor="let product of products" [value]="product.id">
                 {{ product.name }}
               </option>
             </select>
@@ -138,13 +138,13 @@
 
         <div class="product-info">
           <strong>Unit Price: </strong>
-          {{ 4499 / 100 | currency }}
+          {{ getProductPriceByItemIndex(i) / 100 | currency }}
         </div>
       </div>
 
       <div class="subtotal">
         <span>Subtotal:</span>
-        <span><strong>{{ 99845 / 100 | currency }}</strong></span>
+        <span><strong>{{ subtotal / 100 | currency }}</strong></span>
       </div>
 
       <div class="actions-container">
