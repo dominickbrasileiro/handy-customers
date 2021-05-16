@@ -1,0 +1,42 @@
+<div class="create-customer-page">
+  <app-card
+    cardTitle="Create Customer"
+  >
+    <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()" class="create-customer-form">
+      <label for="name">
+        Customer Name
+        <input 
+          id="name"
+          type="text"
+          placeholder="Ex: John Doe"
+          formControlName="name"
+        >
+      </label>
+      
+      <label for="birth_date">
+        Birth Date
+        <input 
+          id="birth_date"
+          type="date"
+          [min]="minBirthDate" [max]="maxBirthDate"
+          formControlName="birth_date"
+        >
+      </label>
+      
+      <label for="phone_number">
+        Phone Number
+        <input 
+          id="phone_number"
+          type="text"
+          placeholder="Ex: +5547997573495"
+          formControlName="phone_number"
+        >
+      </label>
+      
+      <div class="actions-container">
+        <app-button text="Submit" type="submit"></app-button>
+        <button routerLink="/customers" class="cancel-button">Cancel</button>
+      </div>
+    </form>
+  </app-card>
+</div>

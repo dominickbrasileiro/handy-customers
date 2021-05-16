@@ -8,6 +8,8 @@ import { CustomersComponent } from './pages/customers/customers.component';
 import { TableComponent } from './components/table/table.component';
 import { ButtonComponent } from './components/button/button.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CreateCustomerComponent } from './pages/create-customer/create-customer.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,12 +17,14 @@ import { HttpClientModule } from '@angular/common/http';
     CardComponent,
     CustomersComponent,
     TableComponent,
-    ButtonComponent
+    ButtonComponent,
+    CreateCustomerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
