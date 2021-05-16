@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { map } from 'rxjs/operators';
 
 export interface Product {
   id: number;
@@ -24,6 +25,12 @@ export class ProductsService {
   
   getProducts() {
     return this.http.get<Product[]>('http://localhost:3000/products');
+  }
+
+  getActiveProducts() {
+    return this.http.get<Product[]>('http://localhost:3000/products').pipe(
+      map((products) => products.filter(product => product.active)),
+    );
   }
 
   addProduct(productData: AddProductDto) {

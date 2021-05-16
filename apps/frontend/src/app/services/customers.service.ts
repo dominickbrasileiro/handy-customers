@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, toArray } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 export interface Customer {
   id: number;

@@ -1,8 +1,8 @@
 import { Location } from '@angular/common';
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { FormArray, FormBuilder } from '@angular/forms';
 import { CustomersService } from 'src/app/services/customers.service';
-import { OrdersService } from 'src/app/services/orders.service';
+import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
   templateUrl: './create-order.component.html',
@@ -11,26 +11,41 @@ import { OrdersService } from 'src/app/services/orders.service';
 export class CreateOrderComponent {
   constructor(
     private customersService: CustomersService,
-    private ordersService: OrdersService,
-    private router: Router,
+    private productsService: ProductsService,
+    private formBuilder: FormBuilder,
     private location: Location,
   ) {}
 
-  customerId: number;
-  items = [];
+  createOrderForm = this.formBuilder.group({
+    customerId: 1,
+    items: this.formBuilder.array([
+      this.createItemFormGroup(),
+    ]),
+  })
 
   customers = this.customersService.getActiveCustomers();
+  products = this.productsService.getActiveProducts();
+
+  get items() {
+    return this.createOrderForm.get('items') as FormArray;
+  }
+
+  addItem() {
+    this.items.push(this.createItemFormGroup());
+  }
+
+  createItemFormGroup() {
+    return this.formBuilder.group({
+      product_id: 1,
+      quantity: 1,
+    });
+  }
 
   onCancel() {
     this.location.back();
   }
 
   onSubmit() {
-    this.ordersService.addOrder({
-      customerId: this.customerId,
-      items: this.items,
-    }).subscribe(() => {
-      this.router.navigate(['orders']);
-    });
+    console.log(this.createOrderForm.value);
   }
 }
