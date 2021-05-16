@@ -23,8 +23,12 @@ export class CustomersComponent {
   }
 
   toggleActive(customer: Customer) {
-    this.customersService.toggleCustomerStatus(customer).subscribe(() => {
-      this.customers = this.customersService.getCustomers();
-    });
+    const activateOrDeactivateText = customer.active ? 'deactivate' : 'activate';
+    const confirm = window.confirm(`Do you really want to ${activateOrDeactivateText} the customer ${customer.name}?`)
+    if (confirm) {
+      this.customersService.toggleCustomerStatus(customer).subscribe(() => {
+        this.customers = this.customersService.getCustomers();
+      });
+    }
   }
 }
