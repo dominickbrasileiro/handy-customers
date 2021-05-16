@@ -1,7 +1,9 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Customer, CustomersService } from 'src/app/services/customers.service';
+import { OrdersService } from 'src/app/services/orders.service';
 import { Product, ProductsService } from 'src/app/services/products.service';
 
 @Component({
@@ -16,7 +18,9 @@ export class CreateOrderComponent implements OnInit {
   constructor(
     private customersService: CustomersService,
     private productsService: ProductsService,
+    private ordersService: OrdersService,
     private formBuilder: FormBuilder,
+    private router: Router,
     private location: Location,
   ) {}
 
@@ -47,7 +51,7 @@ export class CreateOrderComponent implements OnInit {
 
   createItemFormGroup() {
     return this.formBuilder.group({
-      product_id: 1,
+      productId: 1,
       quantity: 1,
     });
   }
@@ -60,7 +64,7 @@ export class CreateOrderComponent implements OnInit {
         return 0;
       }
 
-      const product = this.products.find(prod => prod.id === Number(item.product_id))
+      const product = this.products.find(prod => prod.id === Number(item.productId))
       
       if (product) {
         return acc + (product.price * item.quantity);
@@ -77,7 +81,7 @@ export class CreateOrderComponent implements OnInit {
 
     const { items } = this.createOrderForm.value;
 
-    const productId = Number(items[index].product_id)
+    const productId = Number(items[index].productId)
     const product = this.products.find(prod => prod.id === productId);
 
     return product?.price || 0;
@@ -88,6 +92,18 @@ export class CreateOrderComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.createOrderForm.value);
+    const { customerId, items } = this.createOrderForm.value;
+
+    const mappedItems = items.map((item: any) => ({
+      product_id: Number(item.productId),
+      quantity: Number(item.quantity),
+    }));
+
+    this.ordersService.addOrder({
+      customerId,
+      items: mappedItems,
+    }).subscribe(() => {
+      this.router.navigate(['orders']);
+    });
   }
 }

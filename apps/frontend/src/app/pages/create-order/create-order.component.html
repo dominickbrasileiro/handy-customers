@@ -22,7 +22,7 @@
         <div class="product-selects">
           <label [for]="i" [formGroupName]="i">
             Product {{ i + 1}}
-            <select [id]="i + '_id'" formControlName="product_id">
+            <select [id]="i + '_id'" formControlName="productId">
               <option value="" disabled>Select a product</option>
               <option *ngFor="let product of products" [value]="product.id">
                 {{ product.name }}
