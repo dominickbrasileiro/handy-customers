@@ -11,6 +11,11 @@ class OrdersController < ApplicationController
 
   def create
     customer = Customer.find(params[:customer_id])
+
+    if not customer.active
+      render json: { error: true, message: 'Bad Request' }, status: 400
+      return
+    end
     
     total = 0
 
@@ -18,6 +23,12 @@ class OrdersController < ApplicationController
 
     create_order_items.each do |item|
       product = Product.find(item['product_id'])
+
+      if not product.active
+        render json: { error: true, message: 'Bad Request' }, status: 400
+        return
+      end
+
       total = total + (product.price * item['quantity'])
       
       order.order_items.new(
