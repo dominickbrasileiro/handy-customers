@@ -13,6 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ProductsComponent } from './pages/products/products.component';
 import { CreateProductComponent } from './pages/create-product/create-product.component';
 import { OrdersComponent } from './pages/orders/orders.component';
+import { OrderDetailsComponent } from './pages/order-details/order-details.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { OrdersComponent } from './pages/orders/orders.component';
     CreateCustomerComponent,
     ProductsComponent,
     CreateProductComponent,
-    OrdersComponent
+    OrdersComponent,
+    OrderDetailsComponent
   ],
   imports: [
     BrowserModule,

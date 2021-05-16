@@ -1,0 +1,45 @@
+<div class="order-details-page">
+  <section class="order-info-section">
+    <app-card
+      cardTitle="Order Info"
+    >
+      <ul class="order-info">
+        <li>
+          <div>Customer</div>
+          <div>
+            <p>
+              <span class="material-icons">person</span>
+              {{ order.customer.name }}
+            </p>
+            <p>
+              <span class="material-icons">phone</span>
+              {{ order.customer.phone_number }}
+            </p>
+          </div>
+        </li>
+
+        <li>
+          <div>Code</div>
+          <div>#{{ order.id }}</div>
+        </li>
+
+        <li>
+          <div>Date</div>
+          <div>{{ order.created_at | date : 'medium' }}</div>
+        </li>
+
+        <li>
+          <div>Total Amount</div>
+          <div>{{ order.amount / 100 | currency }}</div>
+        </li>
+      </ul>
+    </app-card>
+  </section>
+    
+  <section class="order-items-section">
+    <app-card
+      cardTitle="Order Items"
+    ></app-card>
+  </section>
+
+</div>

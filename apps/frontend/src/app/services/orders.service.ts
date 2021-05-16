@@ -40,7 +40,7 @@ export class OrdersService {
   }
 
   getOrderDetails(id: number) {
-    return this.http.get<Order[]>(`http://localhost:3000/orders/${id}`);
+    return this.http.get<OrderWithItems>(`http://localhost:3000/orders/${id}`);
   }
 
   addOrder(orderData: AddOrderDto) {
