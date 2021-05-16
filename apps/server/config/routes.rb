@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   get "/products", to: "products#index"
   post "/products", to: "products#create"
+  patch "/products/:product_id", to: "products#update"
 
   get "/orders", to: "orders#index"
   get "/orders/:order_id", to: "orders#show"
