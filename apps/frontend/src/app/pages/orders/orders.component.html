@@ -22,7 +22,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let order of orders | async">
-          <td>{{ order.id }}</td>
+          <td>#{{ order.id }}</td>
           <td>{{ order.customer.name }}</td>
           <td>{{ order.created_at | date : 'medium' }}</td>
           <td>{{ order.amount / 100 | currency }}</td>
