@@ -7,8 +7,13 @@ import { CustomersComponent } from './pages/customers/customers.component';
 import { OrderDetailsComponent } from './pages/order-details/order-details.component';
 import { OrdersComponent } from './pages/orders/orders.component';
 import { ProductsComponent } from './pages/products/products.component';
+import { WelcomeComponent } from './pages/welcome/welcome.component';
 
 const routes: Routes = [
+  {
+    path: '',
+    component: WelcomeComponent,
+  },
   {
     path: 'customers',
     component: CustomersComponent,    
