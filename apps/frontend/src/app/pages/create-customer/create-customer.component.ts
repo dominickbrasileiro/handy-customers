@@ -1,5 +1,7 @@
+import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   templateUrl: './create-customer.component.html',
@@ -8,6 +10,8 @@ import { FormBuilder } from '@angular/forms';
 export class CreateCustomerComponent {
   constructor(
     private formBuilder: FormBuilder,
+    private router: Router,
+    private location: Location,
   ) {}
 
   checkoutForm = this.formBuilder.group({
@@ -27,7 +31,11 @@ export class CreateCustomerComponent {
     return today.toISOString().split("T")[0];
   }
 
+  onCancel() {
+    this.location.back();
+  }
+
   onSubmit() {
-    console.log(this.checkoutForm.value);
+    this.router.navigate(['customers']);
   }
 }
