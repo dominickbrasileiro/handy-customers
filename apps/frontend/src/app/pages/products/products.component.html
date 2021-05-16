@@ -15,8 +15,8 @@
         <tr>
           <th>Name</th>
           <th>Price</th>
-          <th>Active</th>
           <th>Created At</th>
+          <th>Active</th>
           <th>Actions</th>
         </tr>
       </thead>
@@ -24,8 +24,8 @@
         <tr *ngFor="let product of products | async">
           <td>{{ product.name }}</td>
           <td>{{ product.price | currency }}</td>
-          <td>{{ product.active ? 'Yes' : 'No' }}</td>
           <td>{{ product.created_at | date : 'medium' }}</td>
+          <td>{{ product.active ? 'Yes' : 'No' }}</td>
           <td class="table-actions">
             <span 
               class="material-icons"

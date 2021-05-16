@@ -16,8 +16,8 @@
           <th>Name</th>
           <th>Birth Date</th>
           <th>Phone Number</th>
-          <th>Active</th>
           <th>Created At</th>
+          <th>Active</th>
           <th>Actions</th>
         </tr>
       </thead>
@@ -26,8 +26,8 @@
           <td>{{ customer.name }}</td>
           <td>{{ parseBirthDate(customer.birth_date) | date : 'mediumDate' }}</td>
           <td>{{ customer.phone_number }}</td>
-          <td>{{ customer.active ? 'Yes' : 'No' }}</td>
           <td>{{ customer.created_at | date : 'medium' }}</td>
+          <td>{{ customer.active ? 'Yes' : 'No' }}</td>
           <td class="table-actions">
             <span 
               class="material-icons"
