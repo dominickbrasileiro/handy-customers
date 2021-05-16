@@ -1,0 +1,42 @@
+<div class="orders-page">
+  <app-card
+    cardTitle="Orders"
+  >
+    <div class="create-order-button">
+      <app-button
+        icon="shopping_cart"
+        text="Create Order"
+        routerLink="/orders/new"
+      ></app-button>
+    </div>
+
+    <app-table>
+      <thead>
+        <tr>
+          <th>Code</th>
+          <th>Customer</th>
+          <th>Date</th>
+          <th>Amount</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orders | async">
+          <td>{{ order.id }}</td>
+          <td>{{ order.customer.name }}</td>
+          <td>{{ order.created_at | date : 'medium' }}</td>
+          <td>{{ order.amount / 100 | currency }}</td>
+          <td class="table-actions">
+            <span 
+              class="material-icons"
+              title="Toggle Order Status"
+              [routerLink]="['/orders', order.id]"
+            >
+              arrow_forward
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </app-table>
+  </app-card>
+</div>

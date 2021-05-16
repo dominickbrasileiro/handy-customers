@@ -12,6 +12,7 @@ import { CreateCustomerComponent } from './pages/create-customer/create-customer
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProductsComponent } from './pages/products/products.component';
 import { CreateProductComponent } from './pages/create-product/create-product.component';
+import { OrdersComponent } from './pages/orders/orders.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CreateProductComponent } from './pages/create-product/create-product.co
     ButtonComponent,
     CreateCustomerComponent,
     ProductsComponent,
-    CreateProductComponent
+    CreateProductComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,
