@@ -2,6 +2,7 @@ import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CustomersService } from 'src/app/services/customers.service';
 
 @Component({
   templateUrl: './create-customer.component.html',
@@ -9,12 +10,13 @@ import { Router } from '@angular/router';
 })
 export class CreateCustomerComponent {
   constructor(
+    private customersService: CustomersService,
     private formBuilder: FormBuilder,
     private router: Router,
     private location: Location,
   ) {}
 
-  checkoutForm = this.formBuilder.group({
+  createCustomerForm = this.formBuilder.group({
     name: '',
     birth_date: '',
     phone_number: '',
@@ -36,6 +38,8 @@ export class CreateCustomerComponent {
   }
 
   onSubmit() {
-    this.router.navigate(['customers']);
+    this.customersService.addCustomer(this.createCustomerForm.value).subscribe(() => {
+      this.router.navigate(['customers']);
+    });
   }
 }

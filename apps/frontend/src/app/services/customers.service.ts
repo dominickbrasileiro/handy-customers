@@ -17,6 +17,10 @@ export class CustomersService {
   ) {}
   
   getCustomers() {
-    return this.http.get<Customer[]>('http://localhost:3000/customers')
+    return this.http.get<Customer[]>('http://localhost:3000/customers');
+  }
+
+  addCustomer(customerData: Omit<Customer, 'created_at'>) {
+    return this.http.post('http://localhost:3000/customers', customerData);
   }
 }
