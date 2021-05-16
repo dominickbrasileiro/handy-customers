@@ -12,7 +12,7 @@ export interface Order {
 export interface OrderItem {
   id: number;
   name: string;
-  price: string;
+  price: number;
   quantity: number;
 }
 

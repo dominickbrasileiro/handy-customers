@@ -9,7 +9,7 @@
       <app-card
         cardTitle="Order Info"
       >
-        <ul class="order-info">
+        <ul class="order-info" *ngIf="order">
           <li>
             <div>Customer</div>
             <div>
@@ -46,7 +46,7 @@
       <app-card
         cardTitle="Order Items"
       >
-        <app-table>
+        <app-table *ngIf="order">
           <thead>
             <tr>
               <th>Description</th>
@@ -57,7 +57,7 @@
           <tbody>
             <tr *ngFor="let item of order.order_items">
               <td>{{ item.quantity }} x {{ item.name }}</td>
-              <td>{{ item.price | currency }}</td>
+              <td>{{ item.price / 100 * item.quantity | currency }}</td>
             </tr>
           </tbody>
         </app-table>
