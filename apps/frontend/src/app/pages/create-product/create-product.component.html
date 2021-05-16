@@ -1,0 +1,34 @@
+<div class="create-product-page">
+  <app-card
+    cardTitle="Create Product"
+  >
+    <form [formGroup]="createProductForm" (ngSubmit)="onSubmit()" class="create-product-form">
+      <label for="name">
+        Product Name
+        <input 
+          id="name"
+          type="text"
+          placeholder="Ex: Red Shirt"
+          formControlName="name"
+          required
+        >
+      </label>
+
+      <label for="price">
+        Product Price
+        <input 
+          id="price"
+          type="number"
+          placeholder="Ex: 49.9"
+          formControlName="price"
+          required
+        >
+      </label>
+      
+      <div class="actions-container">
+        <app-button text="Submit" type="submit"></app-button>
+        <button class="cancel-button" (click)="onCancel()">Cancel</button>
+      </div>
+    </form>
+  </app-card>
+</div>
