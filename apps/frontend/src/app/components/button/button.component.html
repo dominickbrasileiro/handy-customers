@@ -1,4 +1,4 @@
-<button class="button" [type]="type">
+<button class="button" [type]="type || 'button'">
   <span class="material-icons" *ngIf="icon">{{ icon }}</span>
   {{ text }}
 </button>
