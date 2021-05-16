@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   def index
-    orders = Order.all
+    orders = Order.order(:created_at)
     render json: orders.to_json(:include => :customer)
   end
 

@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   def index
-    products = Product.all
+    products = Product.order(:created_at)
     render json: products
   end
 

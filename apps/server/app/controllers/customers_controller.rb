@@ -1,6 +1,6 @@
 class CustomersController < ApplicationController
   def index
-    customers = Customer.all
+    customers = Customer.order(:created_at)
     render json: customers
   end
 
