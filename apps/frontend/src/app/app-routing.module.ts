@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CreateCustomerComponent } from './pages/create-customer/create-customer.component';
+import { CreateOrderComponent } from './pages/create-order/create-order.component';
 import { CreateProductComponent } from './pages/create-product/create-product.component';
 import { CustomersComponent } from './pages/customers/customers.component';
 import { OrderDetailsComponent } from './pages/order-details/order-details.component';
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: 'orders',
     component: OrdersComponent,    
+  },
+  {
+    path: 'orders/new',
+    component: CreateOrderComponent,    
   },
   {
     path: 'orders/:orderId',

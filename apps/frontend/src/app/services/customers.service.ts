@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { map, toArray } from 'rxjs/operators';
 
 export interface Customer {
   id: number;
@@ -20,6 +21,12 @@ export class CustomersService {
   
   getCustomers() {
     return this.http.get<Customer[]>('http://localhost:3000/customers');
+  }
+
+  getActiveCustomers() {
+    return this.http.get<Customer[]>('http://localhost:3000/customers').pipe(
+      map((customers) => customers.filter(customer => customer.active)),
+    );
   }
 
   addCustomer(customerData: Omit<Customer, 'created_at'>) {

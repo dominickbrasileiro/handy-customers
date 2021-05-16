@@ -21,6 +21,7 @@ export interface OrderWithItems extends Order {
 }
 
 export interface AddOrderDto {
+  customerId: number;
   items: Array<{
     product_id: number;
     quantity: number;
@@ -44,6 +45,7 @@ export class OrdersService {
   }
 
   addOrder(orderData: AddOrderDto) {
-    return this.http.post('http://localhost:3000/orders', orderData);
+    const { customerId, items } = orderData;
+    return this.http.post(`http://localhost:3000/customers/${customerId}/orders`, { items });
   }
 }

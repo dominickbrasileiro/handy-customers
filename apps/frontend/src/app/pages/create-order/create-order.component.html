@@ -1,0 +1,21 @@
+<div class="create-order-page">
+  <app-card
+    cardTitle="Create Order"
+  >
+    <form (ngSubmit)="onSubmit()" class="create-order-form">
+      <label for="customer">
+        Customer
+        <select name="customer" id="customer">
+          <option *ngFor="let customer of customers | async" [value]="customer.id">
+            {{ customer.name }}
+          </option>
+        </select>
+      </label>
+      
+      <div class="actions-container">
+        <app-button text="Submit" type="submit"></app-button>
+        <button class="cancel-button" (click)="onCancel()">Cancel</button>
+      </div>
+    </form>
+  </app-card>
+</div>
