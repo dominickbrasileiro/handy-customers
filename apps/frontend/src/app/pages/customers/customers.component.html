@@ -16,6 +16,7 @@
           <th>Name</th>
           <th>Birth Date</th>
           <th>Phone Number</th>
+          <th>Active</th>
           <th>Created At</th>
         </tr>
       </thead>
@@ -24,6 +25,7 @@
           <td>{{ customer.name }}</td>
           <td>{{ parseBirthDate(customer.birth_date) | date : 'mediumDate' }}</td>
           <td>{{ customer.phone_number }}</td>
+          <td>{{ customer.active ? 'Yes' : 'No' }}</td>
           <td>{{ customer.created_at | date : 'medium' }}</td>
         </tr>
       </tbody>

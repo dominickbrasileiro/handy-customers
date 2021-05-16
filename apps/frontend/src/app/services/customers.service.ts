@@ -5,6 +5,7 @@ export interface Customer {
   name: string;
   birth_date: string;
   phone_number: string;
+  active: boolean;
   created_at: string;
 }
 
