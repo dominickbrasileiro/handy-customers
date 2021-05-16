@@ -22,9 +22,9 @@
         <div class="product-selects">
           <label [for]="i" [formGroupName]="i">
             Product {{ i + 1}}
-            <select [id]="i + '_id'" formControlName="productId">
+            <select [id]="i + '_id'" formControlName="productId" (ngModelChange)="selectProduct(i, $event)">
               <option value="" disabled>Select a product</option>
-              <option *ngFor="let product of products" [value]="product.id">
+              <option *ngFor="let product of getUnselectedProducts(i)" [value]="product.id">
                 {{ product.name }}
               </option>
             </select>

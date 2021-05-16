@@ -14,6 +14,7 @@ export class CreateOrderComponent implements OnInit {
   products: Product[];
   customers: Customer[];
   createOrderForm: FormGroup;
+  selectedProducts: { [key: number]: string } = {};
 
   constructor(
     private customersService: CustomersService,
@@ -51,9 +52,31 @@ export class CreateOrderComponent implements OnInit {
 
   createItemFormGroup() {
     return this.formBuilder.group({
-      productId: 1,
+      productId: '',
       quantity: 1,
     });
+  }
+
+  selectProduct(inputIndex: number, productId: string) {
+    this.selectedProducts[inputIndex] = productId;;
+  }
+
+  getUnselectedProducts(inputIndex: number) {
+    if (!this.products) {
+      return [];
+    }
+
+    return this.products.filter(product => {
+      if (this.selectedProducts[inputIndex] === `${product.id}`) {
+        return true;
+      }
+
+      if (Object.values(this.selectedProducts).includes(`${product.id}`)) {
+        return false;
+      }
+
+      return true;
+    })
   }
 
   get subtotal() {
