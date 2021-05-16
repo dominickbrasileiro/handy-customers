@@ -30,7 +30,7 @@ export class CreateProductComponent {
 
     this.productsService.addProduct({
       name,
-      price: price * 100,
+      price: Math.round(price * 100),
     }).subscribe(() => {
       this.router.navigate(['products']);
     });
