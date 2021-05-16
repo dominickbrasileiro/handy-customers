@@ -137,6 +137,11 @@
         </div>
 
         <div class="product-info">
+          <strong>Product Total: </strong>
+          {{ getProductTotalByItemIndex(i) / 100 | currency }}
+        </div>
+        
+        <div class="product-info">
           <strong>Unit Price: </strong>
           {{ getProductPriceByItemIndex(i) / 100 | currency }}
         </div>

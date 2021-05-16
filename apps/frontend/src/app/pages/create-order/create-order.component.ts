@@ -87,6 +87,23 @@ export class CreateOrderComponent implements OnInit {
     return product?.price || 0;
   }
 
+  getProductTotalByItemIndex(index: number) {
+    if (!this.products) {
+      return 0;
+    }
+
+    const { items } = this.createOrderForm.value;
+
+    const productId = Number(items[index].productId)
+    const product = this.products.find(prod => prod.id === productId);
+
+    if (!product) {
+      return 0;
+    }
+
+    return product.price * items[index].quantity;
+  }
+
   onCancel() {
     this.location.back();
   }
