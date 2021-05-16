@@ -23,7 +23,7 @@
       <tbody>
         <tr *ngFor="let product of products | async">
           <td>{{ product.name }}</td>
-          <td>{{ product.price | currency }}</td>
+          <td>{{ product.price / 100 | currency }}</td>
           <td>{{ product.created_at | date : 'medium' }}</td>
           <td>{{ product.active ? 'Yes' : 'No' }}</td>
           <td class="table-actions">

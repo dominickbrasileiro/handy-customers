@@ -26,7 +26,12 @@ export class CreateProductComponent {
   }
 
   onSubmit() {
-    this.productsService.addProduct(this.createProductForm.value).subscribe(() => {
+    const { name, price } = this.createProductForm.value;
+
+    this.productsService.addProduct({
+      name,
+      price: price * 100,
+    }).subscribe(() => {
       this.router.navigate(['products']);
     });
   }

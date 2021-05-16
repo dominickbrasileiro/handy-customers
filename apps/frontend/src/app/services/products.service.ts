@@ -9,6 +9,11 @@ export interface Product {
   created_at: string;
 }
 
+export interface AddProductDto {
+  name: string;
+  price: number;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -21,7 +26,7 @@ export class ProductsService {
     return this.http.get<Product[]>('http://localhost:3000/products');
   }
 
-  addProduct(productData: Omit<Product, 'created_at'>) {
+  addProduct(productData: AddProductDto) {
     return this.http.post('http://localhost:3000/products', productData);
   }
 
