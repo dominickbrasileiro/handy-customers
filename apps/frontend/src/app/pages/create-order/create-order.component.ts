@@ -50,6 +50,22 @@ export class CreateOrderComponent implements OnInit {
     this.items.push(this.createItemFormGroup());
   }
 
+  removeItem(index: number) {
+    delete this.selectedProducts[index];
+  
+    // Decreases the selected products index by one when a lower index is deleted
+    Object.keys(this.selectedProducts).forEach((key) => {
+      const numKey = Number(key);
+
+      if (numKey >= index) {
+        this.selectedProducts[numKey - 1] = this.selectedProducts[numKey];
+        delete this.selectedProducts[numKey];
+      }
+    })
+
+    this.items.removeAt(index);
+  }
+
   createItemFormGroup() {
     return this.formBuilder.group({
       productId: '',

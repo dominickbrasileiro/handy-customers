@@ -84,6 +84,26 @@
   margin-top: 8px;
 }
 
+.product-trailing {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.delete-product span {
+  color: #444;
+  padding: 6px;
+  font-size: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+
+  transition: background-color 0.1s;
+}
+
+.delete-product span:hover {
+  background-color: #ddd;
+}
+
 .subtotal {
   display: flex;
   align-items: center;

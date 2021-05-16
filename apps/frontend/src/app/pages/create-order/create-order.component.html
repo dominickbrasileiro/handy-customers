@@ -136,14 +136,22 @@
           </label>
         </div>
 
-        <div class="product-info">
-          <strong>Product Total: </strong>
-          {{ getProductTotalByItemIndex(i) / 100 | currency }}
-        </div>
-        
-        <div class="product-info">
-          <strong>Unit Price: </strong>
-          {{ getProductPriceByItemIndex(i) / 100 | currency }}
+        <div class="product-trailing">
+          <div class="product-values">
+            <div class="product-info">
+              <strong>Product Total: </strong>
+              {{ getProductTotalByItemIndex(i) / 100 | currency }}
+            </div>
+            
+            <div class="product-info">
+              <strong>Unit Price: </strong>
+              {{ getProductPriceByItemIndex(i) / 100 | currency }}
+            </div>
+          </div>
+
+          <div class="delete-product" title="Remove Product" (click)="removeItem(i)">
+            <span class="material-icons">delete</span>
+          </div>
         </div>
       </div>
 
