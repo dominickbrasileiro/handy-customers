@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiBaseUrl: 'https://handy-customers-api.dominckbrasileiro.dev',
+  apiBaseUrl: 'https://handy-customers-api.dominickbrasileiro.dev',
 };
