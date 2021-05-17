@@ -31,6 +31,8 @@ You'll need [Docker](https://www.docker.com/) and [Docker Compose](https://docs.
 $ git clone https://github.com/dominickbrasileiro/handy-customers.git
 $ cd handy-customers
 $ docker-compose up
+
+# Open your browser on http://localhost:4200
 ```
 
 Runs the database, the server and the front-end in development mode.
