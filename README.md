@@ -37,7 +37,17 @@ $ docker-compose up
 
 Runs the database, the server and the front-end in development mode.
 
- # 👪 Contribution
+# 🌐 Architecture and Database Modeling
+
+Architecture
+
+<img src="./resources/architecture.png">
+
+Database Modeling
+
+<img src="./resources/database.png">
+
+# 👪 Contribution
 
 This repository is now closed for contributions. However, feel free to [contact me](https://www.linkedin.com/in/dominickbrasileiro/) if needed.
 
