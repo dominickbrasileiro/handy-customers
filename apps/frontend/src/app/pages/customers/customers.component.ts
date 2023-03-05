@@ -14,11 +14,12 @@ export class CustomersComponent {
   customers = this.customersService.getCustomers();
 
   parseBirthDate(birthDate: string) {
-    let date: string | string[] = birthDate;
-    date = date.substring(0,10).split('-');
-    date = date[1] + '-' + date[2] + '-' + date[0];
+    const localeOffset = new Date().getTimezoneOffset();
+    const date = new Date(birthDate);    
 
-    return new Date(date);
+    date.setMinutes(date.getMinutes() + localeOffset)
+    
+    return date;
   }
 
   toggleActive(customer: Customer) {
